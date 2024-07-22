@@ -305,6 +305,7 @@ func (s *Server) AddListener(l listeners.Listener) error {
 // New built-in listeners should be added to this list.
 func (s *Server) AddListenersFromConfig(configs []listeners.Config) error {
 	for _, conf := range configs {
+		fmt.Println(conf.Type)
 		var l listeners.Listener
 		switch strings.ToLower(conf.Type) {
 		case listeners.TypeTCP:
@@ -319,6 +320,8 @@ func (s *Server) AddListenersFromConfig(configs []listeners.Config) error {
 			l = listeners.NewHTTPStats(conf, s.Info)
 		case listeners.TypeMock:
 			l = listeners.NewMockListener(conf.ID, conf.Address)
+		case listeners.TypeTLS:
+			l = listeners.NewTLS(conf)
 		default:
 			s.Log.Error("listener type unavailable by config", "listener", conf.Type)
 			continue

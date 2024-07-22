@@ -14,6 +14,7 @@ import (
 )
 
 const TypeTCP = "tcp"
+const TypeTLS = "tls"
 
 // TCP is a listener for establishing client connections on basic TCP protocol.
 type TCP struct { // [MQTT-4.2.0-1]

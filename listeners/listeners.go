@@ -14,9 +14,11 @@ import (
 
 // Config contains configuration values for a listener.
 type Config struct {
-	Type    string
-	ID      string
-	Address string
+	Type     string
+	ID       string
+	Address  string
+	CertPath string `json:"certPath" yaml:"cert_path"`
+	KeyPath  string `json:"keyPath" yaml:"key_path"`
 	// TLSConfig is a tls.Config configuration to be used with the listener. See examples folder for basic and mutual-tls use.
 	TLSConfig *tls.Config
 }

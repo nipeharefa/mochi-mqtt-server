@@ -6,12 +6,13 @@ package main
 
 import (
 	"flag"
-	"github.com/mochi-mqtt/server/v2/config"
 	"log"
 	"log/slog"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/mochi-mqtt/server/v2/config"
 
 	mqtt "github.com/mochi-mqtt/server/v2"
 )
